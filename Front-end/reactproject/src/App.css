@@ -4,4 +4,8 @@
   gap: 25px;
  
 }
+#cards{
+display: flex;
+gap: 20px;
 
+}
