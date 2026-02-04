@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple To-Do List</title>
+</head>
+<body>
+  <h2> Simple To-Do List</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button onclick="addTask()">Add</button>
+  <button onclick="showTasks()">Submit</button>
+
+  <ul id="taskList"></ul>
+
+
+  <script>
+    let tasks = []; 
+
+   
+    function addTask() {
+      let input = document.getElementById("taskInput");
+      let task = input.value.trim();
+
+      if (task === "") {
+        alert("Please enter a task!");
+        return;
+      }
+
+      tasks.push(task);
+      input.value = "";
+    }
+
+  
+    function showTasks() {
+      let list = document.getElementById("taskList");
+      list.innerHTML = ""; 
+      for (let i = 0; i < tasks.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = tasks[i];
+        list.appendChild(li);
+      }
+    }
+  </script>
+</body>
+</html>

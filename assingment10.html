@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Tables of 5 and 8</h2>
+  <div id="tables"></div>
+  <p id="count"></p>
+
+  <script>
+    let even = 0, odd = 0;
+    let output = "";
+
+    
+    for (let num of [5, 8]) {
+      output += "Table of " + num + "<br>";
+      for (let i = 1; i <= 10; i++) {
+        let val = num * i;
+        output += num + " x " + i + " = " + val + "<br>";
+
+        if (val % 2 === 0) even++;
+        else odd++;
+      }
+      output += "<br>";
+      
+    }
+
+    document.getElementById("tables").innerHTML = output;
+    document.getElementById("count").innerHTML =
+      "Total Even: " + even + "<br>Total Odd: " + odd;
+  </script>
+</body>
+</html>

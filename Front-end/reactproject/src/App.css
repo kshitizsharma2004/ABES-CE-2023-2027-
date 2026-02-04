@@ -1,0 +1,11 @@
+#root {
+  max-width: 100%;
+  display: flex;
+  gap: 25px;
+ 
+}
+#cards{
+display: flex;
+gap: 20px;
+
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Cart by Branch</title>
+  <style>
+    
+    #box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background-color: aqua;
+      padding: 20px;
+    }
+
+
+    .cart {
+      background-color: lightyellow;
+      color: blue;
+      height: 300px;
+      width: 250px;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    
+    .cart p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+
+    h3 {
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div id="box">
+
+  </div>
+
+  <script>
+   
+    const students = [
+      { "name": "Aman", "roll_No": "10", "branch": "CE" },
+      { "name": "Varun", "roll_No": "11", "branch": "IT" },
+      { "name": "Rahul", "roll_No": "12", "branch": "CSE" },
+      { "name": "Priya", "roll_No": "13", "branch": "ECE" },
+      { "name": "Shiv", "roll_No": "14", "branch": "CE" },
+      { "name": "Ravi", "roll_No": "15", "branch": "CSE" }
+    ];
+
+   
+    const groupedStudents = students.reduce((acc, student) => {
+      if (!acc[student.branch]) {
+        acc[student.branch] = [];
+      }
+      acc[student.branch].push(student);
+      return acc;
+    }, {});
+
+
+    function createCart(branch, studentsInBranch) {
+      const cart = document.createElement('div');
+      cart.classList.add('cart');
+      
+   
+      cart.innerHTML = `<h3>Branch: ${branch}</h3>`;
+
+      studentsInBranch.forEach(student => {
+        const studentInfo = document.createElement('p');
+        studentInfo.textContent = `${student.name} (Roll No: ${student.roll_No})`;
+        cart.appendChild(studentInfo);
+      });
+
+      document.getElementById('box').appendChild(cart);
+    }
+
+ 
+    for (let branch in groupedStudents) {
+      createCart(branch, groupedStudents[branch]);
+    }
+  </script>
+
+</body>
+</html>

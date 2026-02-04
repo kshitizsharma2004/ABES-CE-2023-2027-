@@ -1,0 +1,15 @@
+.class2{
+    color: chartreuse;
+    font-size: 40px;
+}
+.class{
+    padding: 20px;
+    text-align: justify;
+}
+.class3{
+    border: 5px solid red;
+    height: 240px;
+    width: 250px;
+    margin: 100px;
+    margin-left: 100px;
+}
